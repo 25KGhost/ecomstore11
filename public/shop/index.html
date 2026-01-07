@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <a href="/"><strong>BrandName</strong></a>
+            <a href="/shop">Shop</a>
+        </nav>
+
+        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+            <aside style="min-width: 200px; max-width: 250px;">
+                <h3>Filters</h3>
+                <select id="sort-select" style="width: 100%; padding: 8px; margin-bottom: 10px;">
+                    <option value="newest">Newest First</option>
+                    <option value="high-low">Price: High to Low</option>
+                    <option value="low-high">Price: Low to High</option>
+                </select>
+                <div id="filter-list">
+                    <button class="btn" style="width:100%; margin-top:10px; background:#ddd; color:#000;" onclick="window.location.href='/shop'">All Categories</button>
+                </div>
+            </aside>
+            <main style="flex: 1;">
+                <div id="product-grid" class="grid">Loading products...</div>
+            </main>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 BrandName.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="/js/supabase-client.js"></script>
+    <script type="module" src="/js/shop.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div>
+                <a href="/" style="font-size: 1.5rem; margin-right: 20px;"><strong>BrandName</strong></a>
+                <a href="/shop">Shop</a>
+            </div>
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Search products...">
+                <button id="search-btn" class="btn">Go</button>
+            </div>
+        </nav>
+
+        <section class="hero" style="text-align: center; padding: 50px 0;">
+            <h1>Minimalist E-Commerce</h1>
+            <p>Quality products, simple shopping.</p>
+            <br>
+            <a href="/shop" class="btn">Browse Shop</a>
+        </section>
+
+        <h2>Featured Categories</h2>
+        <div id="category-list" class="grid" style="margin-bottom: 40px;"></div>
+
+        <h2>New Arrivals</h2>
+        <div id="featured-products" class="grid"></div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 BrandName. All rights reserved.</p>
+            <p>Algiers, Algeria</p>
+        </div>
+    </footer>
+
+    <script type="module" src="/js/supabase-client.js"></script>
+    <script type="module" src="/js/home.js"></script>
+</body>
+</html>

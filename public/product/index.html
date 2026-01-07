@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <a href="/"><strong>BrandName</strong></a>
+            <a href="/shop">Shop</a>
+        </nav>
+
+        <div id="product-container" style="display: flex; flex-wrap: wrap; gap: 40px; margin-bottom: 50px;">
+            <div style="flex: 1; min-width: 300px;">
+                <img id="main-image" src="" style="width:100%; border:1px solid #ddd; border-radius: 8px;">
+                <div id="gallery-container" style="display: flex; gap: 10px; margin-top: 10px; overflow-x: auto;"></div>
+            </div>
+            <div style="flex: 1; min-width: 300px;">
+                <span id="p-cat-name" style="background:#eee; padding:5px 10px; font-size:0.8rem; border-radius: 4px;"></span>
+                <h1 id="p-name" style="margin: 10px 0;">Loading...</h1>
+                <h2 id="p-price" style="color:var(--success); font-size: 2rem;"></h2>
+                
+                <div id="variants-section" style="margin: 20px 0;"></div>
+                
+                <p id="p-desc" style="margin: 20px 0; white-space: pre-wrap; line-height: 1.8; color: #555;"></p>
+                
+                <hr style="margin: 30px 0;">
+
+                <div class="arabic-form">
+                    <h3 style="text-align: center; margin-bottom: 20px;">استمارة الطلب</h3>
+                    <p style="text-align: center; margin-bottom: 20px;">المرجو إدخال معلوماتك الخاصة بك</p>
+                    
+                    <form id="order-form">
+                        <label>الإسم الكامل</label>
+                        <input type="text" name="customer_name" required placeholder="الإسم واللقب">
+                        
+                        <label>الهاتف (🇩🇿 +213)</label>
+                        <input type="tel" name="phone" required placeholder="05/06/07...">
+                        
+                        <label>الولاية (Wilaya)</label>
+                        <select name="wilaya" id="wilaya-select" required onchange="calculateTotal()">
+                            <option value="">-- اختر الولاية --</option>
+                        </select>
+                        
+                        <label>البلدية (Baladia)</label>
+                        <input type="text" name="baladia" required>
+                        
+                        <label>العنوان (Address)</label>
+                        <textarea name="address" rows="2" required></textarea>
+
+                        <label>نوع التوصيل</label>
+                        <select name="delivery_type" id="delivery-select" onchange="calculateTotal()">
+                            <option value="home" data-price="500">باب المنزل (Home Delivery)</option>
+                            <option value="office" data-price="300">مكتب ياليدين (Yalidine Desk)</option>
+                        </select>
+
+                        <div class="order-summary">
+                            <div class="summary-row">
+                                <span>سعر المنتج</span>
+                                <span id="summary-prod-price">0 DZD</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>سعر التوصيل</span>
+                                <span id="summary-shipping">0 DZD</span>
+                            </div>
+                            <hr>
+                            <div class="summary-row" style="font-weight: bold; font-size: 1.2rem;">
+                                <span>المجموع</span>
+                                <span id="summary-total">0 DZD</span>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn" style="width: 100%; margin-top: 20px; font-size: 1.1rem; background: #28a745;">تأكيد الطلب</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <h3>You Might Also Like</h3>
+        <div id="related-products" class="grid"></div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 BrandName.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="/js/supabase-client.js"></script>
+    <script type="module" src="/js/product.js"></script>
+</body>
+</html>
