@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <a href="/"><strong>BrandName</strong></a>
+            <a href="/shop">Shop</a>
+        </nav>
+
+        <div id="product-container" class="grid" style="grid-template-columns: 1fr 1fr;">
+            <div>Loading...</div>
+        </div>
+
+        <hr style="margin: 40px 0;">
+
+        <div id="order-section" style="max-width: 500px;">
+            <h3>Order This Product</h3>
+            <form id="order-form">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" name="customer_name" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label>Wilaya</label>
+                    <input type="text" name="wilaya" required>
+                </div>
+                <div class="form-group">
+                    <label>Quantity</label>
+                    <input type="number" name="quantity" value="1" min="1" required>
+                </div>
+                <button type="submit" class="btn">Confirm Order</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="/js/supabase-client.js"></script>
+    <script type="module" src="/js/product.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <a href="/"><strong>BrandName</strong></a>
+            <a href="/shop">Shop</a>
+        </nav>
+
+        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+            <aside style="min-width: 200px;">
+                <h3>Filters</h3>
+                <div id="filter-list">
+                    <button class="btn" style="width:100%; margin-top:10px; background:#ddd; color:#000;" onclick="window.location.href='/shop'">All</button>
+                    </div>
+            </aside>
+            <main style="flex: 1;">
+                <div id="product-grid" class="grid">Loading products...</div>
+            </main>
+        </div>
+    </div>
+
+    <script type="module" src="/js/supabase-client.js"></script>
+    <script type="module" src="/js/shop.js"></script>
+</body>
+</html>

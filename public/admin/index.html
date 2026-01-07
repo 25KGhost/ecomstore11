@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="container">
+        <div id="login-view" class="hidden">
+            <h2>Admin Login</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+        </div>
+
+        <div id="dashboard-view" class="hidden">
+            <div class="admin-header">
+                <h2>Dashboard</h2>
+                <button id="logout-btn" class="btn" style="background: #dc3545;">Logout</button>
+            </div>
+            
+            <div style="margin-bottom: 20px;">
+                <button onclick="showSection('products')" class="btn">Products</button>
+                <button onclick="showSection('categories')" class="btn">Categories</button>
+                <button onclick="showSection('orders')" class="btn">Orders</button>
+            </div>
+
+            <hr>
+
+            <div id="section-products" class="hidden">
+                <h3>Manage Products</h3>
+                <form id="product-form" style="background: #eee; padding: 15px; margin: 15px 0;">
+                    <h4>Add/Edit Product</h4>
+                    <input type="hidden" id="p-id">
+                    <div class="grid" style="grid-template-columns: 1fr 1fr;">
+                        <input type="text" id="p-name" placeholder="Name" required class="form-group">
+                        <input type="number" id="p-price" placeholder="Price" required class="form-group">
+                        <input type="text" id="p-image" placeholder="Image URL" class="form-group">
+                        <select id="p-category" class="form-group"></select>
+                    </div>
+                    <textarea id="p-desc" placeholder="Description" style="width:100%; margin-bottom:10px;"></textarea>
+                    <button type="submit" class="btn">Save Product</button>
+                    <button type="button" onclick="resetProductForm()" class="btn" style="background:#888">Clear</button>
+                </form>
+                <div id="admin-products-list"></div>
+            </div>
+
+            <div id="section-categories" class="hidden">
+                <h3>Manage Categories</h3>
+                <form id="cat-form" style="margin: 15px 0;">
+                    <input type="text" id="cat-name" placeholder="New Category Name" required>
+                    <button type="submit" class="btn">Add Category</button>
+                </form>
+                <ul id="admin-cat-list" style="list-style: none;"></ul>
+            </div>
+
+            <div id="section-orders" class="hidden">
+                <h3>Incoming Orders</h3>
+                <table class="table">
+                    <thead><tr><th>Date</th><th>Customer</th><th>Product</th><th>Status</th><th>Action</th></tr></thead>
+                    <tbody id="orders-table-body"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/js/supabase-client.js"></script>
+    <script type="module" src="/js/admin.js"></script>
+</body>
+</html>
